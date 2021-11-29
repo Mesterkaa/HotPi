@@ -17,6 +17,10 @@ while True:
     print(temp)
     print(humidity)
 
+    sense.show_message("Temperature is: %.4s" % temp)
+    sense.show_message("Pressure is: %.4s" % pressure)
+    sense.show_message("Humidity is: %.4s" % humidity)
+
     # Sending data to the server
     requests.post('http://127.0.0.1/save_data', data = { 'pressure': pressure, 'temp': temp, 'humidity': humidity })
 
