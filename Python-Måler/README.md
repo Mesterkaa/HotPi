@@ -2,7 +2,9 @@
 
 The pi that measuress temperatur for the HotPi Project, this pi uses sensehat to measure the enviroment for the mesurements described below.
 
-# measurements
+in this project you can have as many measure pi's that you want as long as they are on the servers hotspot.
+
+# Measurements
 
 - Pressure
 - Temperature
