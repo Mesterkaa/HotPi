@@ -5,6 +5,9 @@ import requests
 sense = SenseHat()
 sense.clear()
 
+# rotate display 180 degrees
+sense.set_rotation(180)
+
 #looping
 while True:  
     # getting pressure, temp and humidity from sensehat
@@ -28,12 +31,12 @@ while True:
     if (response.status_code == 200):
         print("The request was a success!")
         # Code here will only run if the request is successful
-    elif (response.status_code == 404:
+    elif (response.status_code == 404):
         print("Result not found!")
         # Code here will react to failed requests
 
     # print out http response
-    print(response.headers[]) 
+    print(response.headers[:]) 
 
     # clearing sensehat
     sense.clear((pressure, temp, humidity))
