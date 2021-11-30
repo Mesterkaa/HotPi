@@ -1,42 +1,48 @@
 # imports
 from sense_hat import SenseHat
-import requests
+# import requests
+import time
+from uuid import getnode as get_mac
 
-sense = SenseHat()
-sense.clear()
 
-# rotate display 180 degrees
-sense.set_rotation(180)
+# Looping
+while True:
+    mac = get_mac()
+    print("Mac Adress:", hex(mac))
+    
+    print("Sleeping in 5 seconds")
+    time.sleep(5)
 
-#looping
-while True:  
+    sense = SenseHat()
+    sense.clear()
+
     # getting pressure, temp and humidity from sensehat
-    pressure = sense.get_pressure()
-    temp = sense.get_temperature()
-    humidity = sense.get_humidity()
-
+    try:
+        pressure = sense.get_pressure()
+        temp = sense.get_temperature()
+        humidity = sense.get_humidity()
+    except NameError:
+        print("Naming error")
+    except:
+        print("Something went wrong")
+    
     # printing out the mesurements
-    print(pressure)
-    print(temp)
-    print(humidity)
+    print("Pressure is: %.6s Millibars" % pressure)
+    print("Temperature is: %.5s C" % temp)
+    print("Humidity is: %.5s %%rH \n" % humidity)
 
-    sense.show_message("Temperature is: %.4s" % temp)
-    sense.show_message("Pressure is: %.4s" % pressure)
-    sense.show_message("Humidity is: %.4s" % humidity)
 
     # Sending data to the server
-    requests.post('http://127.0.0.1/save_data', data = { 'pressure': pressure, 'temp': temp, 'humidity': humidity })
+    # requests.post('http://127.0.0.1/save_data', data = { 'pressure': pressure, 'temp': temp, 'humidity': humidity })
 
-    # a little HTTP Error handling
-    if (response.status_code == 200):
-        print("The request was a success!")
-        # Code here will only run if the request is successful
-    elif (response.status_code == 404):
-        print("Result not found!")
-        # Code here will react to failed requests
 
-    # print out http response
-    print(response.headers[:]) 
+    # # a little HTTP Error handling
+    # if (response.status_code == 200):
+    #     print("The request was a success!")
+    #     # Code here will only run if the request is successful
+    # elif (response.status_code == 404):
+    #     print("Result not found!")
+    #     # Code here will react to failed requests
 
-    # clearing sensehat
-    sense.clear((pressure, temp, humidity))
+    # # print out http response
+    # print(response.headers[:]) 
