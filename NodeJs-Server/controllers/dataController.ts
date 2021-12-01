@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
-//import { DataService } from "../services/dataService";
+import { DataService } from "../services/dataService";
 
 export class DataController{
-    //dataService: DataService = new DataService();
+    dataService: DataService = new DataService();
 
     constructor() {
         this.getData = this.getData.bind(this);
@@ -20,8 +20,8 @@ export class DataController{
 
     public async saveData(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            //const newWaitTime = await this.dataService.saveData(req.body.data);
-            res.send({waitTime: 5});
+            const waitTime = await this.dataService.saveData(req.body.data);
+            res.send({waitTime: waitTime});
         } catch (error) {
             next(error);
         }
