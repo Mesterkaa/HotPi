@@ -3,7 +3,16 @@
 }
 
 .sidenav {
-  width: 200px;
+  width: 100%;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+}
+
+mat-toolbar {
+  text-align: center;
 }
 
 .sidenav .mat-toolbar {

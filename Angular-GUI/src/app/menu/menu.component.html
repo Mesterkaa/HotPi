@@ -5,9 +5,10 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a class="links" (click)="sidenav.toggle()" mat-list-item routerlink="">Hjem</a>
+      <a class="links" (click)="sidenav.toggle()" mat-list-item routerlink="type">Typer</a>
+      <a class="links" (click)="sidenav.toggle()" mat-list-item routerLink="units">Enheder</a>
+      <a class="links" (click)="sidenav.toggle()" mat-list-item routerlink="settings">Indstillinger</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
