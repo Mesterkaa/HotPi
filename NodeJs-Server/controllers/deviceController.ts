@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
-//import { DataService } from "../services/dataService";
+import { DeviceService } from "../services/deviceService";
 
 export class DeviceController{
-    //dataService: DataService = new DataService();
+    deviceService: DeviceService = new DeviceService();
 
     constructor() {
         this.getDevices = this.getDevices.bind(this);
@@ -11,8 +11,8 @@ export class DeviceController{
 
     public async getDevices(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            //const data = await this.dataService.getData(req.params.name);
-            res.status(501).send("Not implemented yet");
+            const devices = await this.deviceService.getDevices();
+            res.send(devices);
         } catch (error) {
             next(error);
         }
@@ -20,8 +20,10 @@ export class DeviceController{
 
     public async updateName(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            //const newWaitTime = await this.dataService.saveData(req.body.data);
-            res.status(501).send("Not implemented yet");
+            let _id: string = req.body._id;
+            let name: string = req.body.name;
+            const device = await this.deviceService.updateName(_id, name);
+            res.send(device);
         } catch (error) {
             next(error);
         }
