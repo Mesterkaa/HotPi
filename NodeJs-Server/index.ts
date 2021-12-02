@@ -9,11 +9,13 @@ import { MONGODB_URI } from "./config/secrets";
 import { DataRoutes } from './routes/dataRoutes';
 import { DeviceRoutes } from './routes/deviceRoutes';
 import { SettingRoutes } from './routes/settingRoutes';
+import { SettingService } from './services/settingService';
 
 class Server {
 
 
     public app: express.Application;
+    public settingService: SettingService = new SettingService();
 
     constructor() {
 
@@ -21,6 +23,7 @@ class Server {
         this.config();
         this.mongo();
         this.routes();
+        this.settingService.initSettings();
     }
 
     private routes(): void{
@@ -33,6 +36,7 @@ class Server {
         this.app.use(cors());
         this.app.use(express.json());
         this.app.use(express.urlencoded({extended: false}));
+
     }
     private mongo(): void {
         const connection = mongoose.connection;

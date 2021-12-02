@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
-//import { DataService } from "../services/dataService";
+import { SettingService } from "../services/settingService";
 
 export class SettingController{
-    //dataService: DataService = new DataService();
+    settingService: SettingService = new SettingService();
 
     constructor() {
         this.getSettings = this.getSettings.bind(this);
@@ -11,8 +11,8 @@ export class SettingController{
 
     public async getSettings(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            //const data = await this.dataService.getData(req.params.name);
-            res.status(501).send("Not implemented yet");
+            const settings = await this.settingService.getSettings();
+            res.send(settings)
         } catch (error) {
             next(error);
         }
@@ -20,8 +20,10 @@ export class SettingController{
 
     public async saveSettings(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            //const newWaitTime = await this.dataService.saveData(req.body.data);
-            res.status(501).send("Not implemented yet");
+            const update_frequency: number = req.body.update_frequency;
+            const measurement_frequency: number = req.body.measurement_frequency;
+            const settings = await this.settingService.saveSettings(update_frequency, measurement_frequency);
+            res.send(settings);
         } catch (error) {
             next(error);
         }
