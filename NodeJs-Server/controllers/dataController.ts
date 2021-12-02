@@ -11,8 +11,12 @@ export class DataController{
 
     public async getData(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            //const data = await this.dataService.getData(req.params.name);
-            res.status(501).send("Not implemented yet");
+            const time = new Date((req.query.time as string))
+            const type = (req.query.type as string)
+            const devices = (req.query.devices as string[])
+
+            const data = await this.dataService.getData(time, type, devices);
+            res.send(data);
         } catch (error) {
             next(error);
         }
@@ -20,7 +24,8 @@ export class DataController{
 
     public async saveData(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const waitTime = await this.dataService.saveData(req.body.data);
+            const { temperature, air_pressure, humidity, mac} = req.body;
+            const waitTime = await this.dataService.saveData(temperature, air_pressure, humidity, mac);
             res.send({waitTime: waitTime});
         } catch (error) {
             next(error);
