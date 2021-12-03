@@ -2,6 +2,9 @@ import { Routes } from "./Routes";
 
 import { DeviceController } from "../controllers/deviceController";
 
+/**
+ * Defining subroutes for getting and updating devices
+ */
 export class DeviceRoutes extends Routes{
    private deviceController: DeviceController = new DeviceController();
 

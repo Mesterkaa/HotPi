@@ -12,10 +12,11 @@ export interface IMeasurement extends Document {
 export const measurementSchema: Schema = new Schema({
   device_id: {
     type: Schema.Types.ObjectId,
-    ref: 'Device'
+    ref: 'Device',
+    required: true
   },
   measurement: {type: Number, required: true},
-  time: {type: Date, default: Date.now },
+  time: {type: Date, default: Date.now, required: true },
   type: {type: String, required: true},
 });
 
