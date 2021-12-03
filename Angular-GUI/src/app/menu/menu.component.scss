@@ -1,18 +1,33 @@
 .sidenav-container {
   height: 100%;
+  width: 100%;
 }
 
 .sidenav {
   width: 100%;
 }
 
-.links {
-  display: flex;
-  justify-content: center;
+.close-btn {
+  margin-top: 10px;
 }
 
-mat-toolbar {
-  text-align: center;
+.header {
+  display: inline-flex;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.mat-drawer {
+  align-items: center;
 }
 
 .sidenav .mat-toolbar {
