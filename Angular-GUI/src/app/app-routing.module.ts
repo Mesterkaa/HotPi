@@ -7,9 +7,9 @@ import { UnitsComponent } from './units/units.component';
 
 const routes: Routes = [
   { path: '', component: GraphPageComponent },
+  { path: 'settings', component: SettingsComponent },
   { path: 'type', component: TypeComponent },
-  { path: 'units', component: UnitsComponent },
-  { path: 'settings', component: SettingsComponent }
+  { path: 'units', component: UnitsComponent }
 ];
 
 @NgModule({
