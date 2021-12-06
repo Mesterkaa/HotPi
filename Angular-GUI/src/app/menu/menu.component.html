@@ -5,15 +5,13 @@
       [opened]="(isHandset$ | async) === false">
     
       <div class="header">  
-        <mat-toolbar>Menus</mat-toolbar>
-        
         <span class="spacer"></span>
         
         <button class="close-btn" type="button" mat-icon-button (click)="drawer.toggle()">
             <mat-icon>close</mat-icon>
         </button>
       </div>
-
+      
     <mat-nav-list>
       <a class="links" mat-list-item (click)="drawer.toggle()" routerLink="">Hjem</a>
       <a class="links" mat-list-item (click)="drawer.toggle()" routerLink="type">Typer</a>
@@ -28,11 +26,10 @@
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>HotPi</span>
+      <span class="title">HotPi</span>
     </mat-toolbar>
     <ng-content></ng-content>
 
