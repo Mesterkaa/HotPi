@@ -19,7 +19,7 @@
   flex: 1 1 auto;
 }
 
-mat-list-item {
+mat-list-item-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,3 +39,17 @@ mat-list-item {
   top: 0;
   z-index: 1;
 }
+
+@media (min-width: 0px) {
+  .hamburger {
+    display: inline;
+  }
+}
+
+@media (min-width: 960px) {
+  .sidenav {
+    display: none;
+  }
+}
+
+

@@ -1,1 +1,29 @@
-<p>settings works!</p>
+<h1 class="title">Indstillinger</h1>
+
+<form class="container">
+  <mat-label class="title">Hvor hurtigt skal gui hente data</mat-label>
+  <div class="btn-container">
+    <button class="btn" mat-button (click)="GUI(false)">
+      <mat-icon>remove</mat-icon>
+    </button>
+    <h1 class="number">{{ GUINumber }}</h1>
+    <button class="btn" mat-button (click)="GUI(true)">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</form>
+
+
+<form class="container">
+  <mat-label class="title">Måler Fart</mat-label>
+  <div class="btn-container">
+    <button class="btn" mat-button (click)="Measurements(false)">
+      <mat-icon>remove</mat-icon>
+    </button>
+    <h1 class="number">{{ MeasurementNumber }}</h1>
+    <button class="btn" mat-button (click)="Measurements(true)">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</form>
+
