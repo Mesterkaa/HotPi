@@ -1,0 +1,14 @@
+<h1 class="title">Tid</h1>
+
+<form class="container">
+  <mat-label class="title">TidsBegrænsning for data</mat-label>
+  <div class="btn-container">
+    <button class="btn" mat-button (click)="setTime(false)">
+      <mat-icon>remove</mat-icon>
+    </button>
+    <h1 class="number">{{ timeNumber }}</h1>
+    <button class="btn" mat-button (click)="setTime(true)">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</form>

@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 
 import { HighchartsChartModule } from 'highcharts-angular';
 import { GraphPageComponent } from './graph-page/graph-page.component';
-import { SettingsComponent } from './settings/settings.component';
+import { SettingsComponent } from './settings/MeasurementsSettings/settings.component';
 import { MenuComponent } from './menu/menu.component';
 import { UnitsComponent } from './units/units.component';
 import { TypeComponent } from './type/type.component';
@@ -24,6 +24,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatRadioModule} from '@angular/material/radio';
+import { TimeComponent } from './settings/time/time.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {MatRadioModule} from '@angular/material/radio';
     SettingsComponent,
     MenuComponent,
     UnitsComponent,
-    TypeComponent
+    TypeComponent,
+    TimeComponent
   ],
   imports: [
     BrowserModule,
