@@ -42,9 +42,30 @@ export class SettingService {
     }
 
     async initSettings(): Promise<void> {
-        let setting = (await Setting.find({}))[0];
-        if (!setting) {
-            await Setting.create({update_frequency: 5, measurement_frequency: 30});
-        }
+        Setting.exists({name: "time"}).then(result => {
+            if (!result){
+                Setting.create({name: "time", value: 60})
+            }
+        })
+        Setting.exists({name: "devices"}).then(result => {
+            if (!result){
+                Setting.create({name: "devices", value: []})
+            }
+        })
+        Setting.exists({name: "type"}).then(result => {
+            if (!result){
+                Setting.create({name: "type", value: "temperature"})
+            }
+        })
+        Setting.exists({name: "measurement_frequency"}).then(result => {
+            if (!result){
+                Setting.create({name: "measurement_frequency", value: "30"})
+            }
+        })
+        Setting.exists({name: "update_frequency"}).then(result => {
+            if (!result){
+                Setting.create({name: "update_frequency", value: "5"})
+            }
+        })
     }
 }

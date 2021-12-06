@@ -4,13 +4,25 @@ import { Setting } from "../models/setting";
 
 export class DataService {
     /**
-     * Get data from the database based on "Search parameters"
-     * @param time Date and time a measurement can't be older than
-     * @param type Which type pf measurement to find.
-     * @param devices Array of devices the measurement can be made by.
+     * Get data from the database based on "Search parameters" from the database
      * @returns Array containing measurement data
      */
-    async getData(time: Date, type: string, devices: string | string[]): Promise<IMeasurement[]> {
+    async getData(): Promise<IMeasurement[]> {
+        const settings = await Setting.find({name: {$in: ["time", "type", "devices"]}});
+        let time, type, devices;
+        settings.forEach(setting => {
+            switch (setting.name) {
+                case "time":
+                    let time = new Date();
+                    time.setMinutes(time.getMinutes() - setting.value);
+                    break;
+                case "type":
+                    type = setting.value;
+                    break;
+                case "devices":
+                    devices = setting.value;
+            }
+        })
         return await Measurement.find({time: { $gte: time}, type: type, device_id: { $in: devices}}).exec();
     }
 

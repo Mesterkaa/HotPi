@@ -10,18 +10,13 @@ export class DataController{
     }
 
     /**
-     * Gets data based on query parameters.
-     * @param req example: ?type=air_pressure&time=2021-12-01T11:20:07.662Z&devices=61a748ca8ee7e608bb34f361&devices=61a75a6778e6ba98f2dd9b3e
+     * Gets measurement data.
+     * @param req
      * @param res 
      * @param next 
      */
     public async getData(req: Request, res: Response, next: NextFunction): Promise<void> {
-        try {
-            const time = new Date((req.query.time as string))
-            const type = (req.query.type as string)
-            const devices = (req.query.devices as string[])
-
-            const data = await this.dataService.getData(time, type, devices);
+        try { const data = await this.dataService.getData();
             res.send(data);
         } catch (error) {
             next(error);
