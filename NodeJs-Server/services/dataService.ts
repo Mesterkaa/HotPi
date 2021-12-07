@@ -13,7 +13,8 @@ export class DataService {
         settings.forEach(setting => {
             switch (setting.name) {
                 case "time":
-                    let time = new Date();
+                    time = new Date();
+                    console.log(time);
                     time.setMinutes(time.getMinutes() - setting.value);
                     break;
                 case "type":
@@ -23,6 +24,9 @@ export class DataService {
                     devices = setting.value;
             }
         })
+        console.log(time);
+        console.log(type);
+        console.log(devices);
         return await Measurement.find({time: { $gte: time}, type: type, device_id: { $in: devices}}).exec();
     }
 

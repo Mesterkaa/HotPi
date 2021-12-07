@@ -16,7 +16,7 @@ export const measurementSchema: Schema = new Schema({
     required: true
   },
   measurement: {type: Number, required: true},
-  time: {type: Date, default: Date.now, required: true },
+  time: {type: Date, default: () => {return new Date()}, required: true },
   type: {type: String, required: true},
 });
 
