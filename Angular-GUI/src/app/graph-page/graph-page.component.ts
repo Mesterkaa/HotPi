@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import * as Highcharts from 'highcharts';
+import * as Highcharts from "highcharts/highstock";
+import { GrafService } from '../services/graf/graf.service'
+import { HttpClient } from '@angular/common/http';
+
+let device = ["61a8b53bc7e502f0206982b7", "61a748ca8ee7e608bb34f361", "61ab5c6cae1f04f3b15ce969"];
 
 @Component({
   selector: 'app-graph-page',
@@ -7,58 +11,63 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./graph-page.component.scss']
 })
 export class GraphPageComponent implements OnInit {
+  updateFlag: boolean = false;
+  title = 'angular-gui';
+  Highcharts = Highcharts;
+  seriesOptions:any={};
+  chartOptions:any={};
+  chartConstructor = "stockChart";
+  chart: any;
 
-  constructor() { }
+  constructor(private graph: GrafService) { }
 
   ngOnInit(): void {
+    this.graph.get_data().subscribe(result => {
+      
+      console.log(result);
+
+      let data: {[key: string]: any[]} = {};
+
+      device.forEach(element => {
+        data[element] = [];
+      });
+      result.forEach((e: any) => {
+        data[e.device_id].push([(new Date(e.time)).getTime(), e.measurement])
+      })
+      console.log(data);
+
+      this.seriesOptions = [
+        {
+          name: "1",
+          data: data["61a8b53bc7e502f0206982b7"],
+          id: "dataseries1",
+          color: '#d32f2f',
+        },
+        {
+          name: "2",
+          data: data["61a748ca8ee7e608bb34f361"],
+          id: "dataseries2",
+          color: '#90caf9',
+        },
+        {
+          name: "3",
+          data: data["61ab5c6cae1f04f3b15ce969"],
+          id: "dataseries3",
+          color: '#90caf9',
+        }
+      ];
+      this.chartOptions = {
+        chart: {
+          type: "line",
+          zoomType: "xy",
+          panning: true,
+          panKey: "shift"
+        },
+        series: this.seriesOptions
+      };
+    })
+    this.updateFlag = true;
   }
 
-  title = 'angular-gui';
-
-  highcharts = Highcharts;
-
-  chartOptions: Highcharts.Options = {
-    title: {
-      text: "Temprature"
-    },
-    xAxis: {
-      title: {
-        text: 'Tokyo',
-        style: {
-          fontSize:'20px',
-          fontWeight: 'bold'
-      }
-      },
-      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        labels: {
-          style: {
-              fontSize:'20px',
-              fontWeight: 'bold'
-          }
-      }
-    },
-    yAxis: {
-      labels: {
-        style: {
-            fontSize:'20px',
-            fontWeight: 'bold'
-        }
-    },
-      title: {
-        text: "Temprature",
-          style: {
-            fontSize:'20px',
-            fontWeight: 'bold'
-        }
-      }
-    },
-    series: [{
-      data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 24.4, 19.3, 16.0, 18.4, 17.9],
-      type: 'spline',
-      
-      
-    }]
-  }
 
 }
