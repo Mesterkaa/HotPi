@@ -41,6 +41,9 @@ export class SettingService {
 
     }
 
+    /**
+     * Makes sure all default settings.
+     */
     async initSettings(): Promise<void> {
         Setting.exists({name: "time"}).then(result => {
             if (!result){
