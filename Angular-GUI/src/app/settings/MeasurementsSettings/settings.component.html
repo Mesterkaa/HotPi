@@ -6,7 +6,7 @@
     <button class="btn" mat-button (click)="GUI(false)">
       <mat-icon>remove</mat-icon>
     </button>
-    <h1 class="number">{{ GUINumber }}</h1>
+    <h1 class="number">{{ GUINumber }} Sekunder</h1>
     <button class="btn" mat-button (click)="GUI(true)">
       <mat-icon>add</mat-icon>
     </button>
@@ -20,10 +20,11 @@
     <button class="btn" mat-button (click)="Measurements(false)">
       <mat-icon>remove</mat-icon>
     </button>
-    <h1 class="number">{{ MeasurementNumber }}</h1>
+    <h1 class="number">{{ MeasurementNumber }} Sekunder</h1>
     <button class="btn" mat-button (click)="Measurements(true)">
       <mat-icon>add</mat-icon>
     </button>
   </div>
 </form>
 
+<button mat-button class="save" (click)="saveSettings(this.GUINumber, this.MeasurementNumber)">Gem Indstillinger</button>
