@@ -25,6 +25,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatRadioModule} from '@angular/material/radio';
 import { TimeComponent } from './settings/time/time.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { TimeComponent } from './settings/time/time.component';
     TimeComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -54,7 +56,7 @@ import { TimeComponent } from './settings/time/time.component';
     MatSnackBarModule,
     MatRadioModule
   ],
-  providers: [],
+  providers: [/*{ provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true }*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
