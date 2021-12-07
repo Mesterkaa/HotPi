@@ -5,8 +5,8 @@ export class SettingService {
      * Gets all setting stored in the database.
      * @returns A single document containing all the settings.
      */
-    async getSettings(): Promise<ISetting> {
-        return (await Setting.find({}))[0];
+    async getSettings(): Promise<ISetting[]> {
+        return await Setting.find({});
     }
 
     /**
