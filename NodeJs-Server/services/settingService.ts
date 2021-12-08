@@ -1,4 +1,4 @@
-import { SETTING } from "lib/settings";
+import { SETTING } from "../lib/settings";
 import { ISetting, Setting } from "../models/setting";
 
 export class SettingService {
@@ -46,30 +46,30 @@ export class SettingService {
      * Makes sure all default settings.
      */
     async initSettings(): Promise<void> {
-        Setting.exists({name: SETTING.TIME}).then(result => {
-            if (!result){
-                Setting.create({name: SETTING.TIME, value: 60})
-            }
-        })
-        Setting.exists({name: SETTING.DEVICES}).then(result => {
-            if (!result){
-                Setting.create({name: SETTING.DEVICES, value: []})
-            }
-        })
-        Setting.exists({name: SETTING.TYPE}).then(result => {
-            if (!result){
-                Setting.create({name: SETTING.TYPE, value: "temperature"})
-            }
-        })
-        Setting.exists({name: SETTING.M_FREQ}).then(result => {
-            if (!result){
-                Setting.create({name: SETTING.M_FREQ, value: "30"})
-            }
-        })
-        Setting.exists({name: SETTING.U_FREQ}).then(result => {
-            if (!result){
-                Setting.create({name: SETTING.U_FREQ, value: "5"})
-            }
-        })
+        
+        let init = (name: string, value: any) => {
+            Setting.exists({name: name}).then(result => {
+                if (!result){
+                    Setting.create({name: name, value: value})
+                }
+            })
+        }
+
+        init(SETTING.TIME, 60);
+        init(SETTING.DEVICES, []);
+        init(SETTING.TYPE, "temperature");
+        init(SETTING.M_FREQ, 30);
+        init(SETTING.U_FREQ, 5);
+
+        init(SETTING.MAX_TEMP, 40);
+        init(SETTING.MIN_TEMP, 10);
+
+        init(SETTING.MAX_HUMI, 60);
+        init(SETTING.MIN_HUMI, 30);
+
+        init(SETTING.MAX_PRES, 1040);
+        init(SETTING.MIN_PRES, 960);
+
+        init(SETTING.ALARM_EMAIL, "");
     }
 }

@@ -1,4 +1,4 @@
-import { TYPE } from "../lib/types";
+import { TYPE } from "../lib/measurement_types";
 import { SETTING } from "../lib/settings";
 import { Device } from "../models/device";
 import { IMeasurement, Measurement } from "../models/measurement";

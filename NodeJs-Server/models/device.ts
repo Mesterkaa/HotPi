@@ -1,3 +1,4 @@
+import { DB_NAME } from "../lib/db_name";
 import { Document, Schema, Model, model, Error } from "mongoose";
 
 
@@ -11,4 +12,4 @@ export const deviceSchema: Schema = new Schema({
   name: {type: String, default: "New"}
 });
 
-export const Device: Model<IDevice> = model<IDevice>("Device", deviceSchema);
+export const Device: Model<IDevice> = model<IDevice>(DB_NAME.DEVICE, deviceSchema);
