@@ -9,11 +9,17 @@ import { MONGODB_URI } from "./config/secrets";
 import { DataRoutes } from './routes/dataRoutes';
 import { DeviceRoutes } from './routes/deviceRoutes';
 import { SettingRoutes } from './routes/settingRoutes';
+import { SettingService } from './services/settingService';
 
+/**
+ * The main server class.
+ * Handeling all the server logic and memory.
+ * A set of function configures the server.
+ */
 class Server {
 
-
     public app: express.Application;
+    public settingService: SettingService = new SettingService();
 
     constructor() {
 
@@ -21,19 +27,33 @@ class Server {
         this.config();
         this.mongo();
         this.routes();
+        this.settingService.initSettings();
     }
 
+    /**
+     * Configure the routes for the app.
+     * The main routes is defined, with subroutes defined in each router.
+     */
     private routes(): void{
         this.app.use("/data", new DataRoutes().router);
         this.app.use("/device", new DeviceRoutes().router);
         this.app.use("/setting", new SettingRoutes().router);
     }
 
+    /**
+     * Base configuration for express to work the way we want
+     */
     private config(): void {
         this.app.use(cors());
         this.app.use(express.json());
         this.app.use(express.urlencoded({extended: false}));
+
     }
+    /**
+     * Connection to mongodb via Mongoose.
+     * It tell to do in certain events, like losing connection.
+     * It also does the first time connection
+     */
     private mongo(): void {
         const connection = mongoose.connection;
         connection.on("connected", () => {
@@ -68,11 +88,16 @@ class Server {
             };
         run().catch(error => logger.error(error));
     }
+
+    /**
+     * Starting the server, with the http module.
+     */
+
     public start(): void {
         const httpServer = http.createServer(this.app);
-
-        httpServer.listen(3000, () => {
-            logger.log('info', 'HTTP Server running on port 3000');
+        const port: number = 3000;
+        httpServer.listen(port, () => {
+            logger.info(`HTTP Server running on port ${port}`);
 
         });
     }

@@ -9,22 +9,28 @@ export class DataController{
         this.saveData = this.saveData.bind(this);
     }
 
+    /**
+     * Gets measurement data.
+     * @param req
+     * @param res 
+     * @param next 
+     */
     public async getData(req: Request, res: Response, next: NextFunction): Promise<void> {
-        try {
-            const time = new Date((req.query.time as string))
-            const type = (req.query.type as string)
-            const devices = (req.query.devices as string[])
-
-            const data = await this.dataService.getData(time, type, devices);
+        try { const data = await this.dataService.getData();
             res.send(data);
         } catch (error) {
             next(error);
         }
     }
 
-    public async saveData(req: Request, res: Response, next: NextFunction): Promise<void> {
+    /**
+     * Saves a new measurement. Takes a set of data with a mac-address
+     * @param req body = { temperature, air_pressure, humidity, mac}
+     * @param res 
+     * @param next 
+     */
+    public async saveData({body: { temperature, air_pressure, humidity, mac}}: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const { temperature, air_pressure, humidity, mac} = req.body;
             const waitTime = await this.dataService.saveData(temperature, air_pressure, humidity, mac);
             res.send({waitTime: waitTime});
         } catch (error) {
