@@ -1,32 +1,33 @@
 import { logger } from "../config/logger";
-import { createTestAccount, createTransport, getTestMessageUrl } from "nodemailer"
+import { createTransport, getTestMessageUrl } from "nodemailer"
 import { Setting } from "../models/setting";
 import { SETTING } from "../lib/settings";
+import { MAIL_USER, MAIL_PASS, MAIL_HOST } from "../config/secrets";
 
 export class MailService {
     static async sendAlarmMail(message: string) {
         Setting.findOne({name: SETTING.ALARM_EMAIL}).then(async to => {
           if (to && to.value != "") {
-            let testAccount = await createTestAccount();
       
             let transporter = createTransport({
-              host: "smtp.ethereal.email",
+              host: MAIL_HOST,
               port: 587,
               secure: false, // true for 465, false for other ports
               auth: {
-                user: testAccount.user, // generated ethereal user
-                pass: testAccount.pass, // generated ethereal password
+                user: MAIL_USER, // generated ethereal user
+                pass: MAIL_PASS, // generated ethereal password
               },
             });
             
             
             let info = await transporter.sendMail({
-              from: '"HotPi" <alarm@hotpi.info',
+              from: MAIL_USER,
               to: to.value,
               subject: "En værdi er udenfor acceptabelt rækkevidde",
               text: message
             })
-            logger.info("Sent mail to: " + getTestMessageUrl(info))
+            const TestUrl = getTestMessageUrl(info);
+            logger.info(`Sent mail to: ${TestUrl ? TestUrl : info.envelope.to}`);
           } else {
             logger.warn("No warning mail sent, because no recipent set in setings")
           }

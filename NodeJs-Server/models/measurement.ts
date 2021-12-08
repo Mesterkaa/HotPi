@@ -4,7 +4,7 @@ import { TYPE } from "../lib/measurement_types";
 import { Setting } from "./setting";
 import { SETTING } from "../lib/settings";
 import { MailService } from "../services/mailService";
-import { DB_NAME } from "lib/db_name";
+import { DB_NAME } from "../lib/db_name";
 
 
 export interface IMeasurement extends Document {
