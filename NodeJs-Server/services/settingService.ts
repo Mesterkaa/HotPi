@@ -1,3 +1,4 @@
+import { SETTING } from "lib/settings";
 import { ISetting, Setting } from "../models/setting";
 
 export class SettingService {
@@ -45,29 +46,29 @@ export class SettingService {
      * Makes sure all default settings.
      */
     async initSettings(): Promise<void> {
-        Setting.exists({name: "time"}).then(result => {
+        Setting.exists({name: SETTING.TIME}).then(result => {
             if (!result){
-                Setting.create({name: "time", value: 60})
+                Setting.create({name: SETTING.TIME, value: 60})
             }
         })
-        Setting.exists({name: "devices"}).then(result => {
+        Setting.exists({name: SETTING.DEVICES}).then(result => {
             if (!result){
-                Setting.create({name: "devices", value: []})
+                Setting.create({name: SETTING.DEVICES, value: []})
             }
         })
-        Setting.exists({name: "type"}).then(result => {
+        Setting.exists({name: SETTING.TYPE}).then(result => {
             if (!result){
-                Setting.create({name: "type", value: "temperature"})
+                Setting.create({name: SETTING.TYPE, value: "temperature"})
             }
         })
-        Setting.exists({name: "measurement_frequency"}).then(result => {
+        Setting.exists({name: SETTING.M_FREQ}).then(result => {
             if (!result){
-                Setting.create({name: "measurement_frequency", value: "30"})
+                Setting.create({name: SETTING.M_FREQ, value: "30"})
             }
         })
-        Setting.exists({name: "update_frequency"}).then(result => {
+        Setting.exists({name: SETTING.U_FREQ}).then(result => {
             if (!result){
-                Setting.create({name: "update_frequency", value: "5"})
+                Setting.create({name: SETTING.U_FREQ, value: "5"})
             }
         })
     }

@@ -1,3 +1,5 @@
+import { TYPE } from "../lib/types";
+import { SETTING } from "../lib/settings";
 import { Device } from "../models/device";
 import { IMeasurement, Measurement } from "../models/measurement";
 import { Setting } from "../models/setting";
@@ -8,18 +10,18 @@ export class DataService {
      * @returns Array containing measurement data
      */
     async getData(): Promise<IMeasurement[]> {
-        const settings = await Setting.find({name: {$in: ["time", "type", "devices"]}});
+        const settings = await Setting.find({name: {$in: [SETTING.TIME, SETTING.TYPE, SETTING.DEVICES]}});
         let time, type, devices;
         settings.forEach(setting => {
             switch (setting.name) {
-                case "time":
+                case SETTING.TIME:
                     time = new Date();
                     time.setMinutes(time.getMinutes() - setting.value);
                     break;
-                case "type":
+                case SETTING.TYPE:
                     type = setting.value;
                     break;
-                case "devices":
+                case SETTING.DEVICES:
                     devices = setting.value;
             }
         })
@@ -45,11 +47,11 @@ export class DataService {
         }
         await Measurement.create(
             [
-                {device_id: id, measurement: temperature, type: "temperature"},
-                {device_id: id, measurement: humidity, type: "humidity"},
-                {device_id: id, measurement: air_pressure, type: "air_pressure"}
+                {device_id: id, measurement: temperature, type: TYPE.TEMP},
+                {device_id: id, measurement: humidity, type: TYPE.HUMI},
+                {device_id: id, measurement: air_pressure, type: TYPE.PRES}
             ]
             );
-        return (await Setting.find({name: "measurement_frequency"}))[0].value;
+        return (await Setting.find({name: SETTING.M_FREQ}))[0].value;
     }
 }
