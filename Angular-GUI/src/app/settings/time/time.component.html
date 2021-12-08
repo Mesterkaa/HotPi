@@ -6,9 +6,11 @@
     <button class="btn" mat-button (click)="setTime(false)">
       <mat-icon>remove</mat-icon>
     </button>
-    <h1 class="number">{{ timeNumber }}</h1>
-    <button class="btn" mat-button (click)="setTime(true)">
+    <h1 class="number">{{ timeNumber }} minutter</h1>
+    <button class="btn" mat-button (mousedown)="setTime(true)">
       <mat-icon>add</mat-icon>
     </button>
   </div>
 </form>
+
+<button mat-flat-button color="accent" class="save" (click)="saveTime(this.timeNumber)">Gem Indstillinger</button>

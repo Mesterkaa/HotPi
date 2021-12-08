@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { SettingsService } from 'src/app/services/settings/settings.service';
 
 @Component({
   selector: 'app-time',
@@ -10,10 +11,22 @@ export class TimeComponent implements OnInit {
 
   public timeNumber: number = 60;
   snackbarDurationInSeconds = 5;
+  time: any = [];
 
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(
+    private _snackBar: MatSnackBar,
+    private settingsService: SettingsService
+    ) { }
 
   ngOnInit(): void {
+    this.settingsService.GetSettings().subscribe((res) => {
+      this.time = res;
+
+      this.timeNumber = this.time[4].value;
+
+      console.log(this.time);
+    });
+
   }
 
    setTime(action: boolean) {
@@ -30,4 +43,8 @@ export class TimeComponent implements OnInit {
       }
     }
   };
+
+  saveTime(timeNumber: number) {
+    this.settingsService.saveTime(timeNumber);
+  }
 }

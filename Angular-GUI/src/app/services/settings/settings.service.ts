@@ -25,4 +25,16 @@ export class SettingsService {
   GetSettings() {
     return this.httpClient.get(URL.SETTING.GET_ALL)
   }
+
+  saveTime(timeNumber: number) {
+    const time = {
+      settings: [
+        {name: SETTING.TIME, value: timeNumber}
+      ]
+    }
+    console.log("time", time);
+    this.httpClient.put(URL.SETTING.UPDATE, time).subscribe((res) => {
+      console.log(res);
+    });
+  }
 }
