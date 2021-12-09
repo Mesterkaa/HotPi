@@ -40,17 +40,17 @@ mat-list-item-content {
   z-index: 1;
 }
 
-.mat-toolbar{
-  min-height:80px
+.mat-toolbar {
+  min-height: 80px;
 }
-.mat-icon{
+.mat-icon {
   margin-top: 10px;
-  height:60px !important;
-  width:60px !important;
-  font-size:60px !important;
+  height: 60px !important;
+  width: 60px !important;
+  font-size: 60px !important;
 }
 
-.title{
+.title {
   margin-left: 25px;
   font-size: 30px;
 }
@@ -58,4 +58,13 @@ mat-list-item-content {
 .links {
   font-size: 36px;
   margin-top: 30px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.grid-item {
+  text-align: center;
 }

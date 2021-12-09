@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HumComponent } from './hum.component';
+import { MinMaxComponent } from './min-max.component';
 
-describe('HumComponent', () => {
-  let component: HumComponent;
-  let fixture: ComponentFixture<HumComponent>;
+describe('MinMaxComponent', () => {
+  let component: MinMaxComponent;
+  let fixture: ComponentFixture<MinMaxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HumComponent ]
+      declarations: [ MinMaxComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HumComponent);
+    fixture = TestBed.createComponent(MinMaxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

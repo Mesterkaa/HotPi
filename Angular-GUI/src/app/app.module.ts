@@ -16,9 +16,7 @@ import { UnitsComponent } from './units/units.component';
 import { TypeComponent } from './type/type.component';
 import { TimeComponent } from './settings/time/time.component';
 import { EmailComponent } from './alarm/email/email.component';
-import { TempComponent } from './alarm/settings/temp/temp.component';
-import { HumComponent } from './alarm/settings/hum/hum.component';
-import { PressureComponent } from './alarm/settings/pressure/pressure.component';
+import { MinMaxComponent } from './alarm/min-max/min-max.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,6 +28,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatTreeModule } from '@angular/material/tree';
 
 @NgModule({
   declarations: [
@@ -41,9 +40,7 @@ import { MatRadioModule } from '@angular/material/radio';
     TypeComponent,
     TimeComponent,
     EmailComponent,
-    TempComponent,
-    HumComponent,
-    PressureComponent
+    MinMaxComponent
   ],
   imports: [
     HttpClientModule,
@@ -62,7 +59,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatFormFieldModule,
     FormsModule,
     MatSnackBarModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTreeModule
   ],
   providers: [/*{ provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true }*/],
   bootstrap: [AppComponent]
