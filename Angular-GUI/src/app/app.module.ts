@@ -14,6 +14,11 @@ import { SettingsComponent } from './settings/MeasurementsSettings/settings.comp
 import { MenuComponent } from './menu/menu.component';
 import { UnitsComponent } from './units/units.component';
 import { TypeComponent } from './type/type.component';
+import { TimeComponent } from './settings/time/time.component';
+import { EmailComponent } from './alarm/email/email.component';
+import { TempComponent } from './alarm/settings/temp/temp.component';
+import { HumComponent } from './alarm/settings/hum/hum.component';
+import { PressureComponent } from './alarm/settings/pressure/pressure.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -25,7 +30,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
-import { TimeComponent } from './settings/time/time.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import { TimeComponent } from './settings/time/time.component';
     MenuComponent,
     UnitsComponent,
     TypeComponent,
-    TimeComponent
+    TimeComponent,
+    EmailComponent,
+    TempComponent,
+    HumComponent,
+    PressureComponent
   ],
   imports: [
     HttpClientModule,
