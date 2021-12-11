@@ -14,6 +14,9 @@ import { SettingsComponent } from './settings/MeasurementsSettings/settings.comp
 import { MenuComponent } from './menu/menu.component';
 import { UnitsComponent } from './units/units.component';
 import { TypeComponent } from './type/type.component';
+import { TimeComponent } from './settings/time/time.component';
+import { EmailComponent } from './alarm/email/email.component';
+import { MinMaxComponent } from './alarm/min-max/min-max.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -25,7 +28,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
-import { TimeComponent } from './settings/time/time.component';
+import { MatTreeModule } from '@angular/material/tree';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { TimeComponent } from './settings/time/time.component';
     MenuComponent,
     UnitsComponent,
     TypeComponent,
-    TimeComponent
+    TimeComponent,
+    EmailComponent,
+    MinMaxComponent
   ],
   imports: [
     HttpClientModule,
@@ -54,7 +59,8 @@ import { TimeComponent } from './settings/time/time.component';
     MatFormFieldModule,
     FormsModule,
     MatSnackBarModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTreeModule
   ],
   providers: [/*{ provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true }*/],
   bootstrap: [AppComponent]

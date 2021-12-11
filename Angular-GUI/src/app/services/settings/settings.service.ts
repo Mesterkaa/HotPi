@@ -16,7 +16,6 @@ export class SettingsService {
         {name: SETTING.U_FREQ, value: guinum}
       ]
     }
-    console.log("body", body);
     this.httpClient.put(URL.SETTING.UPDATE, body).subscribe((res) => {
       console.log(res);
     });

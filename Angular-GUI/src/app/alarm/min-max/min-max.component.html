@@ -1,0 +1,90 @@
+<h1 class="title">Indstil Min-Max værdier for alarm</h1>
+
+<div class="grid-container">
+    <div class="grid-item">
+        <form class="container">
+            <mat-label class="title">Minimum værdi for temperatur</mat-label>
+            <div class="btn-container">
+              <button class="btn" mat-button>
+                <mat-icon>remove</mat-icon>
+              </button>
+              <h1 class="number">{{ TempMin }} Celcius</h1>
+              <button class="btn" mat-button>
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+        </form>
+    </div>
+    <div class="grid-item">
+        <form class="container">
+            <mat-label class="title">Maksimum værdi for temperatur</mat-label>
+            <div class="btn-container">
+              <button class="btn" mat-button>
+                <mat-icon>remove</mat-icon>
+              </button>
+              <h1 class="number">{{ TempMax }} Celcius</h1>
+              <button class="btn" mat-button>
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+        </form>
+    </div>
+    <div class="grid-item">
+        <form class="container">
+            <mat-label class="title">Minimum værdi for luftfugtighed</mat-label>
+            <div class="btn-container">
+              <button class="btn" mat-button>
+                <mat-icon>remove</mat-icon>
+              </button>
+              <h1 class="number">{{ HumMin }} %</h1>
+              <button class="btn" mat-button>
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+        </form>
+    </div>
+    <div class="grid-item">
+        <form class="container">
+            <mat-label class="title">Maksimum værdi for luftfugtighed</mat-label>
+            <div class="btn-container">
+              <button class="btn" mat-button>
+                <mat-icon>remove</mat-icon>
+              </button>
+              <h1 class="number">{{ HumMax }} %</h1>
+              <button class="btn" mat-button>
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+        </form>
+    </div>
+    <div class="grid-item">
+        <form class="container">
+            <mat-label class="title">Minimum værdi for tryk</mat-label>
+            <div class="btn-container">
+              <button class="btn" mat-button>
+                <mat-icon>remove</mat-icon>
+              </button>
+              <h1 class="number">{{ PresMin }} hPa</h1>
+              <button class="btn" mat-button>
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+        </form>
+    </div>
+    <div class="grid-item">
+        <form class="container">
+            <mat-label class="title">Maksimum værdi for tryk</mat-label>
+            <div class="btn-container">
+              <button class="btn" mat-button>
+                <mat-icon>remove</mat-icon>
+              </button>
+              <h1 class="number">{{ PresMax }} hPa</h1>
+              <button class="btn" mat-button>
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<button mat-flat-button color="accent" class="save">Gem Indstillinger</button>
