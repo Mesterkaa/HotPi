@@ -16,7 +16,10 @@ export class SettingService {
      * @returns Array of Settings
      */
     async getSetting(names: string[]): Promise<ISetting[]> {
-        return await Setting.find({name: {$in: names}});
+
+        return (await Setting.find({name: {$in: names}})).sort((a,b)=> {
+            return names.indexOf(a.name) - names.indexOf(b.name);
+        });
     }
 
     /**
