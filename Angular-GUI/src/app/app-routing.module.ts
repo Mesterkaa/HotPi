@@ -5,7 +5,7 @@ import { SettingsComponent } from './settings/MeasurementsSettings/settings.comp
 import { TimeComponent } from './settings/time/time.component';
 import { TypeComponent } from './pages/type/type.component';
 import { UnitsComponent } from './units/units.component';
-import { EmailComponent } from './alarm/email/email.component';
+import { EmailComponent } from './pages/email/email.component';
 import { MinMaxComponent } from './alarm/min-max/min-max.component';
 
 const routes: Routes = [
