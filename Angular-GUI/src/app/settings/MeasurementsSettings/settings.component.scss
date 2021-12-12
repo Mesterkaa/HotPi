@@ -1,11 +1,10 @@
-.formfield-input {
-  display: inline-block;
-}
-
+// title class that centers the text also adds a margin-top
 .title {
   text-align: center;
+  margin-top: 1%;
 }
 
+// Centers content in container class
 .container {
   display: flex;
   justify-content: center;
@@ -13,6 +12,7 @@
   flex-direction: column;
 }
 
+// displays content side by side and centers i and adds a margin bottom
 .btn-container {
   display: inline-flex;
   justify-content: center;
@@ -20,15 +20,13 @@
   padding: 0%;
 }
 
-.btn {
-  padding: 0%;
-}
-
+// styles for number header that centers it
 .number {
   padding: 0;
   margin-top: 6%;
 }
 
+// styles for save button that centers it
 .save {
   display: flex;
   margin-right: auto;

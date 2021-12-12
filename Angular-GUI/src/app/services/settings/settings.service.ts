@@ -27,7 +27,7 @@ export class SettingsService {
     return this.httpClient.get(URL.SETTING.GET_ALL);
   }
 
-  getSingleSetting(measurementFreq: any, Updatefreq: any) {
+  getSpecificSettings(measurementFreq: any, Updatefreq: any) {
     return this.httpClient.get<ISetting[]>(URL.SETTING.GET + "?name=" + measurementFreq + "&name=" + Updatefreq);
   }
 
