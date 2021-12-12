@@ -1,0 +1,34 @@
+// title class that centers the text also adds a margin-top
+.title {
+  margin-top: 1%;
+  text-align: center;
+}
+
+// Centers content in container class
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+// displays content side by side and centers i and adds a margin bottom
+.btn-container {
+  display: inline-flex;
+  justify-content: center;
+  margin-bottom: 5%;
+  padding: 0%;
+}
+
+// styles for number header that centers it
+.number {
+  padding: 0;
+  margin-top: 10%;
+}
+
+// styles for save button that centers it
+.save {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
