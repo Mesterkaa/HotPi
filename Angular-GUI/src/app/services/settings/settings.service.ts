@@ -21,8 +21,13 @@ export class SettingsService {
     });
   }
 
+  // henter alle settings og outputter det i en array
   GetSettings() {
-    return this.httpClient.get(URL.SETTING.GET_ALL)
+    return this.httpClient.get(URL.SETTING.GET_ALL);
+  }
+
+  getSingleSetting(measurementFreq: any, Updatefreq: any) {
+    return this.httpClient.get(URL.SETTING.GET + "?name=" + measurementFreq + "&name=" + Updatefreq);
   }
 
   saveTime(timeNumber: number) {

@@ -5,11 +5,11 @@
         <form class="container">
             <mat-label class="title">Minimum værdi for temperatur</mat-label>
             <div class="btn-container">
-              <button class="btn" mat-button>
+              <button class="btn" mat-button (click)="Temp(false)">
                 <mat-icon>remove</mat-icon>
               </button>
               <h1 class="number">{{ TempMin }} Celcius</h1>
-              <button class="btn" mat-button>
+              <button class="btn" mat-button (click)="Temp(true)">
                 <mat-icon>add</mat-icon>
               </button>
             </div>
@@ -19,11 +19,11 @@
         <form class="container">
             <mat-label class="title">Maksimum værdi for temperatur</mat-label>
             <div class="btn-container">
-              <button class="btn" mat-button>
+              <button class="btn" mat-button (click)="TempMaxi(false)">
                 <mat-icon>remove</mat-icon>
               </button>
               <h1 class="number">{{ TempMax }} Celcius</h1>
-              <button class="btn" mat-button>
+              <button class="btn" mat-button (click)="TempMaxi(true)">
                 <mat-icon>add</mat-icon>
               </button>
             </div>
@@ -33,11 +33,11 @@
         <form class="container">
             <mat-label class="title">Minimum værdi for luftfugtighed</mat-label>
             <div class="btn-container">
-              <button class="btn" mat-button>
+              <button class="btn" mat-button (click)="Hum(false)">
                 <mat-icon>remove</mat-icon>
               </button>
-              <h1 class="number">{{ HumMin }} %</h1>
-              <button class="btn" mat-button>
+              <h1 class="number">{{ HumiMin }} %</h1>
+              <button class="btn" mat-button (click)="Hum(true)">
                 <mat-icon>add</mat-icon>
               </button>
             </div>
@@ -47,11 +47,11 @@
         <form class="container">
             <mat-label class="title">Maksimum værdi for luftfugtighed</mat-label>
             <div class="btn-container">
-              <button class="btn" mat-button>
+              <button class="btn" mat-button (click)="HumMaxi(false)">
                 <mat-icon>remove</mat-icon>
               </button>
-              <h1 class="number">{{ HumMax }} %</h1>
-              <button class="btn" mat-button>
+              <h1 class="number">{{ HumiMax }} %</h1>
+              <button class="btn" mat-button (click)="HumMaxi(true)">
                 <mat-icon>add</mat-icon>
               </button>
             </div>
@@ -61,11 +61,11 @@
         <form class="container">
             <mat-label class="title">Minimum værdi for tryk</mat-label>
             <div class="btn-container">
-              <button class="btn" mat-button>
+              <button class="btn" mat-button (click)="Pres(false)">
                 <mat-icon>remove</mat-icon>
               </button>
               <h1 class="number">{{ PresMin }} hPa</h1>
-              <button class="btn" mat-button>
+              <button class="btn" mat-button (click)="Pres(true)">
                 <mat-icon>add</mat-icon>
               </button>
             </div>
@@ -75,11 +75,11 @@
         <form class="container">
             <mat-label class="title">Maksimum værdi for tryk</mat-label>
             <div class="btn-container">
-              <button class="btn" mat-button>
+              <button class="btn" mat-button (click)="PresMaxi(false)">
                 <mat-icon>remove</mat-icon>
               </button>
               <h1 class="number">{{ PresMax }} hPa</h1>
-              <button class="btn" mat-button>
+              <button class="btn" mat-button (click)="PresMaxi(true)">
                 <mat-icon>add</mat-icon>
               </button>
             </div>
@@ -87,4 +87,4 @@
     </div>
 </div>
 
-<button mat-flat-button color="accent" class="save">Gem Indstillinger</button>
+<button mat-flat-button color="accent" class="save" (click)="saveSettings()">Gem Indstillinger</button>

@@ -5,7 +5,8 @@ const PROXY_CONFIG = [
           "/device",
           "/setting"
       ],
-      target: "http://192.168.137.21:3000",
+      // target: "http://192.168.137.21:3000", original
+      target: "http://mesterkaa.dk:3000",
       secure: false
   }
 ]

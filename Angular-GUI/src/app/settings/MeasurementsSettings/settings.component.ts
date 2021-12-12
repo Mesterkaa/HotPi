@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { SETTING } from 'src/app/helper/setting.const';
 import { SettingsService } from 'src/app/services/settings/settings.service';
 
 @Component({
@@ -22,13 +23,16 @@ export class SettingsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.settingsService.GetSettings().subscribe((res) => {
+    const measurementFreq = SETTING.M_FREQ;
+    const Updatefreq = SETTING.U_FREQ;
+
+    this.settingsService.getSingleSetting(measurementFreq, Updatefreq).subscribe((res) => {
+      console.log(res);
       this.settings = res;
 
-      this.GUINumber = this.settings[0].value;
-      this.MeasurementNumber = this.settings[1].value
-
-      console.log(this.settings);
+      
+      this.MeasurementNumber = this.settings[0].value
+      this.GUINumber = this.settings[1].value;
     });
   }
 
