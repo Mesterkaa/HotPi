@@ -27,12 +27,13 @@ export class SettingsComponent implements OnInit {
     const Updatefreq = SETTING.U_FREQ;
 
     this.settingsService.getSingleSetting(measurementFreq, Updatefreq).subscribe((res) => {
-      console.log(res);
-      this.settings = res;
+      const MeasurementSpeedObject = res.find( ({ name }) => name === SETTING.M_FREQ );
+      this.MeasurementNumber = MeasurementSpeedObject?.value;
+      console.log(this.MeasurementNumber);
 
-      
-      this.MeasurementNumber = this.settings[0].value
-      this.GUINumber = this.settings[1].value;
+      const GUIMeasurementSpeedObject = res.find( ({ name }) => name === SETTING.U_FREQ );
+      this.GUINumber = GUIMeasurementSpeedObject?.value;
+      console.log(this.GUINumber);
     });
   }
 

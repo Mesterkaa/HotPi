@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { URL } from 'src/app/helper/url.const';
 import { SETTING } from 'src/app/helper/setting.const';
+import { ISetting } from 'src/app/interfaces/ISetting';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,11 @@ export class SettingsService {
   }
 
   getSingleSetting(measurementFreq: any, Updatefreq: any) {
-    return this.httpClient.get(URL.SETTING.GET + "?name=" + measurementFreq + "&name=" + Updatefreq);
+    return this.httpClient.get<ISetting[]>(URL.SETTING.GET + "?name=" + measurementFreq + "&name=" + Updatefreq);
+  }
+
+  getTime(time: any) {
+    return this.httpClient.get<ISetting[]>(URL.SETTING.GET + "?name=" + time);
   }
 
   saveTime(timeNumber: number) {
