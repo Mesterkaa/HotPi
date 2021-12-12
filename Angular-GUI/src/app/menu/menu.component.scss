@@ -1,9 +1,33 @@
 .sidenav-container {
   height: 100%;
+  width: 100%;
 }
 
 .sidenav {
-  width: 200px;
+  width: 100%;
+}
+
+.close-btn {
+  margin-top: 10px;
+}
+
+.header {
+  display: inline-flex;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-list-item-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.mat-drawer {
+  align-items: center;
 }
 
 .sidenav .mat-toolbar {
@@ -14,4 +38,34 @@
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+.mat-toolbar {
+  min-height: 80px;
+}
+.mat-icon {
+  margin-top: 10px;
+  height: 60px !important;
+  width: 60px !important;
+  font-size: 60px !important;
+}
+
+.menu-title {
+  margin-left: 3%;
+  margin-top: 1%;
+  font-size: xx-large;
+}
+
+.links {
+  font-size: 36px;
+  margin-top: 30px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.grid-item {
+  text-align: center;
 }

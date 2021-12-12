@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./units.component.scss']
 })
 export class UnitsComponent implements OnInit {
+  check = true;
 
   constructor() { }
 

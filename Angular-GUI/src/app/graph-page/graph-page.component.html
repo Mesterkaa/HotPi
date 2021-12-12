@@ -1,4 +1,10 @@
-<highcharts-chart
-   [Highcharts] = "highcharts" 
-   [options] = "chartOptions">
+<highcharts-chart 
+id="container" 
+[Highcharts]="Highcharts" 
+[constructorType]="chartConstructor"
+[options]="chartOptions" 
+[oneToOne]="true"
+[(update)]= "updateFlag">
 </highcharts-chart>
+
+<div id="first-container"></div>
