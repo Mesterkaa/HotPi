@@ -24,6 +24,7 @@ export class TimeComponent implements OnInit {
 
   // runs when site is accessed
   ngOnInit(): void {
+    
     // Setting time number rigth using SETTING enum
     const time = SETTING.TIME;
     

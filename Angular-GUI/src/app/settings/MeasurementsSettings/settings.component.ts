@@ -1,8 +1,10 @@
+// imports
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { SETTING } from 'src/app/helper/setting.const';
 import { SettingsService } from 'src/app/services/settings/settings.service';
 
+// Declorations
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -10,23 +12,27 @@ import { SettingsService } from 'src/app/services/settings/settings.service';
 })
 export class SettingsComponent implements OnInit {
 
+  // properties
   public MeasurementNumber: number = 5;
   public GUINumber: number = 5;
-  snackbarDurationInSeconds = 5;
-  settings: any = []
 
-
-
+  // Inject services
   constructor(
     private _snackBar: MatSnackBar,
     private settingsService: SettingsService
   ) { }
 
+  // runs when site is accessed
   ngOnInit() {
+
+    // Setting MeasurementNumber and GUINumber rigth using SETTING enum
     const measurementFreq = SETTING.M_FREQ;
     const Updatefreq = SETTING.U_FREQ;
 
-    this.settingsService.getSingleSetting(measurementFreq, Updatefreq).subscribe((res) => {
+    // running getSpecificSettings funktion in SettingService 
+    // and finds MeasurementSpeedObject object and setting value = to MeasurementNumber
+    // and does the same with GUINumber
+    this.settingsService.getSpecificSettings(measurementFreq, Updatefreq).subscribe((res) => {
       const MeasurementSpeedObject = res.find( ({ name }) => name === SETTING.M_FREQ );
       this.MeasurementNumber = MeasurementSpeedObject?.value;
       console.log(this.MeasurementNumber);
@@ -37,6 +43,8 @@ export class SettingsComponent implements OnInit {
     });
   }
 
+  // recieves a true or false from HTML file and based on that either adds or removes on from MeasurementNumber
+  // also checks if MeasurementNumber is grether the 0 and 1 or it opens snackbar component
   Measurements(action: boolean) {
     if (this.MeasurementNumber >= 0) {
       if(action == true) {
@@ -51,6 +59,8 @@ export class SettingsComponent implements OnInit {
     }
   };
 
+  // recieves a true or false from HTML file and based on that either adds or removes on from GUINumber
+  // also checks if GUINumber is grether the 0 and 1 or it opens snackbar component
   GUI(action: boolean) {
     if (this.GUINumber >= 0) {
       if(action == true) {
@@ -65,6 +75,7 @@ export class SettingsComponent implements OnInit {
     }
   };
 
+  // runs saveTime function in settingsservice and sends GUINumber and MeasurementNumber property with it
   saveSettings(guinum: number, meaNumber: number) {
     this.settingsService.saveSettings(guinum, meaNumber);
   }
