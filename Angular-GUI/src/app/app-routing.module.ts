@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GraphPageComponent } from './graph-page/graph-page.component';
 import { SettingsComponent } from './settings/MeasurementsSettings/settings.component';
 import { TimeComponent } from './settings/time/time.component';
-import { TypeComponent } from './type/type.component';
+import { TypeComponent } from './pages/type/type.component';
 import { UnitsComponent } from './units/units.component';
 import { EmailComponent } from './alarm/email/email.component';
 import { MinMaxComponent } from './alarm/min-max/min-max.component';

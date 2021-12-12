@@ -1,0 +1,8 @@
+
+<mat-radio-group
+  class="type-radio-group"
+  [(ngModel)]="selectedType">
+  <mat-radio-button class="type-radio-button" *ngFor="let type of types" [value]="type" (change)="selectionChange($event)">
+    {{(type[0].toUpperCase() + type.slice(1)).replace("_", " ")}}
+  </mat-radio-button>
+</mat-radio-group>

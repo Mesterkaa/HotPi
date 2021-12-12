@@ -7,7 +7,7 @@
         margin-right: 50px;
   }
 }
-  
+
   ul {
     margin: 50px;
     list-style-type: none;
@@ -34,4 +34,16 @@
     width: 80px;  /*double of your required circle radius*/
     left: calc(50% - 40px); /*'10px'-same as your required circle radius*/
     top: calc(50% - 40px); /*'10px'-same as your required circle radius*/
+  }
+
+  .type-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    margin-left: 50px;
+  }
+
+  .type-radio-button {
+    margin: 30px;
+    font-size: 40px;
   }
