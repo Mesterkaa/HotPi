@@ -6,11 +6,11 @@ import { SettingsService } from 'src/app/core/services/settings/settings.service
 
 // Declorations
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss']
+  selector: 'app-frequency',
+  templateUrl: './frequency.component.html',
+  styleUrls: ['./frequency.component.scss']
 })
-export class SettingsComponent implements OnInit {
+export class FrequencyComponent implements OnInit {
 
   // properties
   public MeasurementNumber: number = 5;

@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 
 import { HighchartsChartModule } from 'highcharts-angular';
 import { GraphComponent } from './pages/graph/graph.component';
-import { SettingsComponent } from './pages/MeasurementsSettings/settings.component';
+import { FrequencyComponent } from './pages/frequency/frequency.component';
 import { MenuComponent } from './layout/menu/menu.component';
 import { DevicesComponent } from './pages/devices/devices.component';
 import { TypeComponent } from './pages/type/type.component';
@@ -36,7 +36,7 @@ import { EditdialogComponent } from './pages/devices/editdialog/editdialog.compo
   declarations: [
     AppComponent,
     GraphComponent,
-    SettingsComponent,
+    FrequencyComponent,
     MenuComponent,
     DevicesComponent,
     TypeComponent,
