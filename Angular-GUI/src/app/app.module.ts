@@ -12,7 +12,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { GraphPageComponent } from './graph-page/graph-page.component';
 import { SettingsComponent } from './settings/MeasurementsSettings/settings.component';
 import { MenuComponent } from './menu/menu.component';
-import { UnitsComponent } from './units/units.component';
+import { DevicesComponent } from './pages/devices/devices.component';
 import { TypeComponent } from './pages/type/type.component';
 import { TimeComponent } from './settings/time/time.component';
 import { EmailComponent } from './pages/email/email.component';
@@ -29,6 +29,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatDialogModule } from '@angular/material/dialog';
+import { EditdialogComponent } from './pages/devices/editdialog/editdialog.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +38,12 @@ import { MatTreeModule } from '@angular/material/tree';
     GraphPageComponent,
     SettingsComponent,
     MenuComponent,
-    UnitsComponent,
+    DevicesComponent,
     TypeComponent,
     TimeComponent,
     EmailComponent,
-    MinMaxComponent
+    MinMaxComponent,
+    EditdialogComponent
   ],
   imports: [
     HttpClientModule,
@@ -60,7 +63,8 @@ import { MatTreeModule } from '@angular/material/tree';
     FormsModule,
     MatSnackBarModule,
     MatRadioModule,
-    MatTreeModule
+    MatTreeModule,
+    MatDialogModule
   ],
   providers: [/*{ provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true }*/],
   bootstrap: [AppComponent]

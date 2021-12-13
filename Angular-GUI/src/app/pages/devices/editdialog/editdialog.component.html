@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Ret enhed: {{device?.mac}} | {{device?.name}}</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Nyt navn</mat-label>
+    <input matInput [(ngModel)]="newName">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annuller</button>
+  <button mat-button [mat-dialog-close]="newName" cdkFocusInitial>Gem</button>
+</div>
