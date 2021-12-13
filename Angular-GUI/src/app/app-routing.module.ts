@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GraphPageComponent } from './graph-page/graph-page.component';
+import { GraphComponent } from './pages/graph/graph.component';
 import { SettingsComponent } from './settings/MeasurementsSettings/settings.component';
 import { TimeComponent } from './settings/time/time.component';
 import { TypeComponent } from './pages/type/type.component';
@@ -9,7 +9,7 @@ import { EmailComponent } from './pages/email/email.component';
 import { MinMaxComponent } from './alarm/min-max/min-max.component';
 
 const routes: Routes = [
-  { path: '', component: GraphPageComponent },
+  { path: '', component: GraphComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'type', component: TypeComponent },
   { path: 'devices', component: DevicesComponent },

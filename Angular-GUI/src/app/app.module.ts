@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HighchartsChartModule } from 'highcharts-angular';
-import { GraphPageComponent } from './graph-page/graph-page.component';
+import { GraphComponent } from './pages/graph/graph.component';
 import { SettingsComponent } from './settings/MeasurementsSettings/settings.component';
 import { MenuComponent } from './menu/menu.component';
 import { DevicesComponent } from './pages/devices/devices.component';
@@ -35,7 +35,7 @@ import { EditdialogComponent } from './pages/devices/editdialog/editdialog.compo
 @NgModule({
   declarations: [
     AppComponent,
-    GraphPageComponent,
+    GraphComponent,
     SettingsComponent,
     MenuComponent,
     DevicesComponent,
