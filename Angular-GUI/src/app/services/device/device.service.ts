@@ -14,7 +14,7 @@ export class DeviceService {
 
   constructor(private httpClient: HttpClient) {
     this.httpClient.get<IDevice[]>(URL.DEVICE.GET).subscribe(res => {
-      this._devices.next(res.concat(res.concat(res.concat(res))));
+      this._devices.next(res);
     })
   }
   update(_id: string, name: string): void {
