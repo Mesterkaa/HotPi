@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { URL } from 'src/app/helper/url.const';
-import { IDevice } from 'src/app/interfaces/IDevice';
+import { URL } from 'src/app/core/const/url.const';
+import { IDevice } from 'src/app/core/interfaces/IDevice';
 
 @Injectable({
   providedIn: 'root'

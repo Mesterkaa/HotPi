@@ -1,4 +1,4 @@
-import { SETTING } from "../helper/setting.const"
+import { SETTING } from "../const/setting.const"
 
 export interface ISetting {
   _id: string

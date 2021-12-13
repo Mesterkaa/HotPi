@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { SETTING } from 'src/app/helper/setting.const';
-import { URL } from 'src/app/helper/url.const';
-import { IMeasurement } from 'src/app/interfaces/IMeasurement';
+import { SETTING } from 'src/app/core/const/setting.const';
+import { URL } from 'src/app/core/const/url.const';
+import { IMeasurement } from 'src/app/core/interfaces/IMeasurement';
 import { SettingsService } from '../settings/settings.service';
 
 @Injectable({

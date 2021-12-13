@@ -1,8 +1,8 @@
 // imports
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar'
-import { SETTING } from 'src/app/helper/setting.const';
-import { SettingsService } from 'src/app/services/settings/settings.service';
+import { SETTING } from 'src/app/core/const/setting.const';
+import { SettingsService } from 'src/app/core/services/settings/settings.service';
 
 // Declorations
 @Component({
@@ -24,10 +24,10 @@ export class TimeComponent implements OnInit {
 
   // runs when site is accessed
   ngOnInit(): void {
-    
+
     // Setting time number rigth using SETTING enum
     const time = SETTING.TIME;
-    
+
     // running time funktion in SettingService and finde time object and setting value = to timenumber
     this.settingsService.getTime(time).subscribe((res) => {
       const TimeObject = res.find( ({ name }) => name === time );

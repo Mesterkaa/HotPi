@@ -1,13 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as Highcharts from "highcharts/highstock";
 import { SequenceError, Subscription } from 'rxjs';
-import { SETTING } from 'src/app/helper/setting.const';
-import { IDevice } from 'src/app/interfaces/IDevice';
-import { IMeasurement } from 'src/app/interfaces/IMeasurement';
-import { DataService } from 'src/app/services/data/data.service';
-import { DeviceService } from 'src/app/services/device/device.service';
-import { SettingsService } from 'src/app/services/settings/settings.service';
-import { GrafService } from '../../services/graf/graf.service'
+import { SETTING } from 'src/app/core/const/setting.const';
+import { IDevice } from 'src/app/core/interfaces/IDevice';
+import { IMeasurement } from 'src/app/core/interfaces/IMeasurement';
+import { DataService } from 'src/app/core/services/data/data.service';
+import { DeviceService } from 'src/app/core/services/device/device.service';
+import { SettingsService } from 'src/app/core/services/settings/settings.service';
+import { GrafService } from 'src/app/core/services/graf/graf.service'
 
 //let device = ["61a8b53bc7e502f0206982b7", "61a748ca8ee7e608bb34f361", "61ab5c6cae1f04f3b15ce969"];
 

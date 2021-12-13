@@ -10,13 +10,13 @@ import { AppComponent } from './app.component';
 
 import { HighchartsChartModule } from 'highcharts-angular';
 import { GraphComponent } from './pages/graph/graph.component';
-import { SettingsComponent } from './settings/MeasurementsSettings/settings.component';
-import { MenuComponent } from './menu/menu.component';
+import { SettingsComponent } from './pages/MeasurementsSettings/settings.component';
+import { MenuComponent } from './layout/menu/menu.component';
 import { DevicesComponent } from './pages/devices/devices.component';
 import { TypeComponent } from './pages/type/type.component';
-import { TimeComponent } from './settings/time/time.component';
+import { TimeComponent } from './pages/time/time.component';
 import { EmailComponent } from './pages/email/email.component';
-import { MinMaxComponent } from './alarm/min-max/min-max.component';
+import { MinMaxComponent } from './pages/min-max/min-max.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';

@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { IDevice } from 'src/app/interfaces/IDevice';
+import { IDevice } from 'src/app/core/interfaces/IDevice';
 
 @Component({
   templateUrl: './editdialog.component.html',

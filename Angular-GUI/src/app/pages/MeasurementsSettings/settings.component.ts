@@ -1,8 +1,8 @@
 // imports
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar'
-import { SETTING } from 'src/app/helper/setting.const';
-import { SettingsService } from 'src/app/services/settings/settings.service';
+import { SETTING } from 'src/app/core/const/setting.const';
+import { SettingsService } from 'src/app/core/services/settings/settings.service';
 
 // Declorations
 @Component({
@@ -29,7 +29,7 @@ export class SettingsComponent implements OnInit {
     const measurementFreq = SETTING.M_FREQ;
     const Updatefreq = SETTING.U_FREQ;
 
-    // running getSpecificSettings funktion in SettingService 
+    // running getSpecificSettings funktion in SettingService
     // and finds MeasurementSpeedObject object and setting value = to MeasurementNumber
     // and does the same with GUINumber
     this.settingsService.getSpecificSettings(measurementFreq, Updatefreq).subscribe((res) => {

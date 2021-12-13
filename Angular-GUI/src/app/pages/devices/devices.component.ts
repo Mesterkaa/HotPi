@@ -2,10 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
-import { SETTING } from 'src/app/helper/setting.const';
-import { IDevice } from 'src/app/interfaces/IDevice';
-import { DeviceService } from 'src/app/services/device/device.service';
-import { SettingsService } from 'src/app/services/settings/settings.service';
+import { SETTING } from 'src/app/core/const/setting.const';
+import { IDevice } from 'src/app/core/interfaces/IDevice';
+import { DeviceService } from 'src/app/core/services/device/device.service';
+import { SettingsService } from 'src/app/core/services/settings/settings.service';
 import { EditdialogComponent } from './editdialog/editdialog.component';
 
 @Component({

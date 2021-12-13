@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService } from 'src/app/services/settings/settings.service';
-import { SETTING } from 'src/app/helper/setting.const';
+import { SettingsService } from 'src/app/core/services/settings/settings.service';
+import { SETTING } from 'src/app/core/const/setting.const';
 import { MatSnackBar } from '@angular/material/snack-bar'
-import { AlarmsService } from 'src/app/services/alarms/alarms.service';
-import { ISetting } from 'src/app/interfaces/ISetting';
+import { AlarmsService } from 'src/app/core/services/alarms/alarms.service';
+import { ISetting } from 'src/app/core/interfaces/ISetting';
 
 @Component({
   selector: 'app-min-max',
@@ -42,26 +42,26 @@ export class MinMaxComponent implements OnInit {
       const tempMinObjekt = res.find( ({ name }) => name === SETTING.MIN_TEMP );
       this.TempMin = tempMinObjekt?.value;
       console.log(this.TempMin, "MinTemp");
-      
+
       const humMaxObject = res.find( ({ name }) => name === SETTING.MAX_HUMI );
       this.HumiMax = humMaxObject?.value;
       console.log(this.HumiMax, "hum max");
-      
+
       const humMinObject = res.find( ({ name }) => name === SETTING.MIN_HUMI );
       this.HumiMin = humMinObject?.value;
       console.log(this.HumiMin, "hum min");
-      
+
       const presMaxObject = res.find( ({ name }) => name === SETTING.MAX_PRES );
       this.PresMax = presMaxObject?.value;
       console.log(this.PresMax, "PresMAx");
-      
+
       const presMinObject = res.find( ({ name }) => name === SETTING.MIN_PRES );
       this.PresMin = presMinObject?.value;
       console.log(this.PresMin, "Presmin");
     });
   }
 
-  
+
   Temp(action: boolean) {
     if (this.TempMin >= 0) {
       if(action == true) {
@@ -155,7 +155,7 @@ export class MinMaxComponent implements OnInit {
         { name: SETTING.MAX_HUMI, value: this.HumiMax },
         { name: SETTING.MIN_PRES, value: this.PresMin },
         { name: SETTING.MAX_PRES, value: this.PresMax }
-      ] 
+      ]
     };
 
     this.AlarmService.saveAlarmSettings(body);

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { SettingsService } from '../settings/settings.service';
 import { HttpClient } from '@angular/common/http';
-import { URL } from 'src/app/helper/url.const';
-import { SETTING } from 'src/app/helper/setting.const';
-import { ISetting } from 'src/app/interfaces/ISetting';
+import { URL } from 'src/app/core/const/url.const';
+import { SETTING } from 'src/app/core/const/setting.const';
+import { ISetting } from 'src/app/core/interfaces/ISetting';
 
 @Injectable({
   providedIn: 'root'
