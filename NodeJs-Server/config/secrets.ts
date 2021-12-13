@@ -23,6 +23,13 @@ if (!MAIL_USER) {
     process.exit(1);
 }
 
+export const ON_EDUROAM = process.env["ON_EDUROAM"];
+
+if (!ON_EDUROAM) {
+    logger.error("Set ON_EDUROAM environment variable.");
+    process.exit(1);
+}
+
 export const MAIL_PASS = process.env["MAIL_PASS"];
 
 if (!MAIL_PASS) {
