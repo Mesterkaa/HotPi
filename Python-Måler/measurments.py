@@ -18,19 +18,21 @@ def wait(color, waitTime):
             sense.clear() # turns off all LED's
         sleep(0.5) # sleeps for half a second
         i += 1 # adds 1 to i
-        print("i:", i) # print out i
 
-# Starting a infinity loop
+
+sense = SenseHat() # setting sense variable to be pointing at Sensehat Libray
+sense.clear() # turns every LED off
+mac = gma(interface="wlan0") 
+
+# Starting a infinite loop
 while True:
-    sense = SenseHat() # setting sense variable to be pointing at Sensehat Libray
-    sense.clear() # turns every LED off
 
     try:
         # getting pressure, temp, humidity and mac(from wlan0 interface) from sensehat
         pressure = sense.get_pressure()
         temp = sense.get_temperature()
         humidity = sense.get_humidity()
-        mac = gma(interface="wlan0") 
+        
     # if theres a NameError print it
     except NameError as err:
         print(err)
@@ -45,12 +47,16 @@ while True:
     print("Mac Adress:", mac, "\n")
 
     # Sending data to the server with data object contaning measurements and mac address in key: value format
-    response = requests.post('http://10.42.0.1:3000/data/save_data', data = { 
-        'air_pressure': pressure, 
-        'temperature': temp, 
-        'humidity': humidity, 
-        'mac': mac 
-    })
+    try:
+        response = requests.post('http://10.42.0.1:3000/data/save_data', data = { 
+            'air_pressure': pressure, 
+            'temperature': temp, 
+            'humidity': humidity, 
+            'mac': mac 
+        })
+    except:
+        red = 255, 0, 0 # defines red as a color
+        wait(red, waitTime) # runs wait function with red and waitTime variable
 
     # if 200 httpstatus if recieved from the server blink green
     if (response.status_code == 200):
