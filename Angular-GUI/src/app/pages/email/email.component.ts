@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SETTING } from 'src/app/helper/setting.const';
-import { AlarmsService } from 'src/app/services/alarms/alarms.service';
-import { SettingsService } from 'src/app/services/settings/settings.service';
+import { SETTING } from 'src/app/core/const/setting.const';
+import { AlarmsService } from 'src/app/core/services/alarms/alarms.service';
+import { SettingsService } from 'src/app/core/services/settings/settings.service';
 
 @Component({
   selector: 'app-email',

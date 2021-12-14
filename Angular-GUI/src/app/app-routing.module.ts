@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GraphPageComponent } from './graph-page/graph-page.component';
-import { SettingsComponent } from './settings/MeasurementsSettings/settings.component';
-import { TimeComponent } from './settings/time/time.component';
+import { GraphComponent } from './pages/graph/graph.component';
+import { FrequencyComponent } from './pages/frequency/frequency.component';
+import { TimeComponent } from './pages/time/time.component';
 import { TypeComponent } from './pages/type/type.component';
-import { UnitsComponent } from './units/units.component';
+import { DevicesComponent } from './pages/devices/devices.component';
 import { EmailComponent } from './pages/email/email.component';
-import { MinMaxComponent } from './alarm/min-max/min-max.component';
+import { MinMaxComponent } from './pages/min-max/min-max.component';
 
 const routes: Routes = [
-  { path: '', component: GraphPageComponent },
-  { path: 'settings', component: SettingsComponent },
+  { path: '', component: GraphComponent },
+  { path: 'frequency', component: FrequencyComponent },
   { path: 'type', component: TypeComponent },
-  { path: 'units', component: UnitsComponent },
+  { path: 'devices', component: DevicesComponent },
   { path: 'time', component: TimeComponent },
   { path: 'email', component: EmailComponent },
-  { path: 'MinMax', component: MinMaxComponent }
+  { path: 'min-max', component: MinMaxComponent }
 ];
 
 @NgModule({

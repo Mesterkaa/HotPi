@@ -1,0 +1,31 @@
+
+
+
+.device-checkbox {
+  margin-top: 60px;
+  font-size: 40px;
+  padding-left: 50px;
+  ::ng-deep .mat-checkbox-inner-container {
+    width: 40px;
+    height: 40px;
+    margin-right: 50px;
+
+  }
+
+  mat-icon {
+    transform: scale(2);
+    margin-left: 50px;
+  }
+}
+
+:host ::ng-deep .mat-list-base .mat-list-item .mat-list-item-content {
+  justify-content: left;
+
+}
+:host ::ng-deep .mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
+  width: auto;
+}
+
+:host ::ng-deep .mat-checkbox-layout {
+  align-items: center;
+}

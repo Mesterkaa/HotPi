@@ -9,14 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HighchartsChartModule } from 'highcharts-angular';
-import { GraphPageComponent } from './graph-page/graph-page.component';
-import { SettingsComponent } from './settings/MeasurementsSettings/settings.component';
-import { MenuComponent } from './menu/menu.component';
-import { UnitsComponent } from './units/units.component';
+import { GraphComponent } from './pages/graph/graph.component';
+import { FrequencyComponent } from './pages/frequency/frequency.component';
+import { MenuComponent } from './layout/menu/menu.component';
+import { DevicesComponent } from './pages/devices/devices.component';
 import { TypeComponent } from './pages/type/type.component';
-import { TimeComponent } from './settings/time/time.component';
+import { TimeComponent } from './pages/time/time.component';
 import { EmailComponent } from './pages/email/email.component';
-import { MinMaxComponent } from './alarm/min-max/min-max.component';
+import { MinMaxComponent } from './pages/min-max/min-max.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -29,18 +29,21 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatDialogModule } from '@angular/material/dialog';
+import { EditdialogComponent } from './pages/devices/editdialog/editdialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GraphPageComponent,
-    SettingsComponent,
+    GraphComponent,
+    FrequencyComponent,
     MenuComponent,
-    UnitsComponent,
+    DevicesComponent,
     TypeComponent,
     TimeComponent,
     EmailComponent,
-    MinMaxComponent
+    MinMaxComponent,
+    EditdialogComponent
   ],
   imports: [
     HttpClientModule,
@@ -60,7 +63,8 @@ import { MatTreeModule } from '@angular/material/tree';
     FormsModule,
     MatSnackBarModule,
     MatRadioModule,
-    MatTreeModule
+    MatTreeModule,
+    MatDialogModule
   ],
   providers: [/*{ provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true }*/],
   bootstrap: [AppComponent]

@@ -1,0 +1,15 @@
+<!--<ul class="type-list">
+    <section class="type-check-box">
+        <mat-checkbox [checked]="check" color="primary" >Måler Pi 1</mat-checkbox>
+    </section>
+    <section class="type-check-box">
+
+    </section>
+</ul>-->
+
+<mat-list>
+  <mat-list-item *ngFor="let device of devices" class="device-checkbox">
+    <mat-checkbox [checked]="checked(device._id)" (change)="change($event, device)" color="primary">{{device.name}}</mat-checkbox>
+    <mat-icon aria-hidden="false" aria-label="edit icon" (click)="startEdit(device)">edit</mat-icon>
+  </mat-list-item>
+</mat-list>

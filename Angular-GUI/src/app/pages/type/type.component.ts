@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatRadioChange } from '@angular/material/radio';
 import { Subscription } from 'rxjs';
-import { SettingsService } from 'src/app/services/settings/settings.service';
-import { SETTING } from 'src/app/helper/setting.const';
-import { M_TYPE } from 'src/app/helper/m_type.const';
+import { SettingsService } from 'src/app/core/services/settings/settings.service';
+import { SETTING } from 'src/app/core/const/setting.const';
+import { M_TYPE } from 'src/app/core/const/m_type.const';
 
 
 @Component({

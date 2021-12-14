@@ -1,0 +1,57 @@
+<mat-sidenav-container class="sidenav-container" fullscreen>
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+
+      <div class="header">
+        <span class="spacer"></span>
+
+        <button class="close-btn" type="button" mat-icon-button (click)="drawer.toggle()">
+            <mat-icon>close</mat-icon>
+        </button>
+      </div>
+
+      <mat-nav-list>
+        <div class="grid-container">
+          <div class="grid-item">
+            <a class="links" mat-list-item (click)="drawer.toggle()" routerLink="">Hjem</a>
+          </div>
+          <div class="grid-item">
+            <a class="links" mat-list-item (click)="drawer.toggle()" routerLink="frequency">Frekvens</a>
+          </div>
+          <div class="grid-item">
+            <a class="links" mat-list-item (click)="drawer.toggle()" routerLink="type">Typer</a>
+          </div>
+          <div class="grid-item">
+            <a class="links" mat-list-item (click)="drawer.toggle()" routerLink="email">Email</a>
+          </div>
+          <div class="grid-item">
+            <a class="links" mat-list-item (click)="drawer.toggle()" routerLink="devices">Enheder</a>
+          </div>
+          <div class="grid-item">
+            <a class="links" mat-list-item (click)="drawer.toggle()" routerLink="min-max">Min-Max</a>
+          </div>
+          <div class="grid-item">
+            <a class="links" mat-list-item (click)="drawer.toggle()" routerLink="time">Tid</a>
+          </div>
+      </div>
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        class="hamburger"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="menu-title">HotPi</span>
+    </mat-toolbar>
+    <ng-content></ng-content>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
