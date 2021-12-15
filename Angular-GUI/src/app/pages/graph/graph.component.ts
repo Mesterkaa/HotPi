@@ -7,7 +7,6 @@ import { IMeasurement } from 'src/app/core/interfaces/IMeasurement';
 import { DataService } from 'src/app/core/services/data/data.service';
 import { DeviceService } from 'src/app/core/services/device/device.service';
 import { SettingsService } from 'src/app/core/services/settings/settings.service';
-import { GrafService } from 'src/app/core/services/graf/graf.service'
 
 //let device = ["61a8b53bc7e502f0206982b7", "61a748ca8ee7e608bb34f361", "61ab5c6cae1f04f3b15ce969"];
 
@@ -31,7 +30,7 @@ export class GraphComponent implements OnInit, OnDestroy {
   public selectedDevices: string[] = [];
   public devices: IDevice[] = [];
   private subscriptions: Subscription[] = [];
-  constructor(private graph: GrafService, private dataService: DataService, private deviceService: DeviceService, private settingService: SettingsService) { }
+  constructor(private dataService: DataService, private deviceService: DeviceService, private settingService: SettingsService) { }
 
   ngOnInit(): void {
     this.subscriptions.push(this.deviceService.devices.subscribe(devices => {
